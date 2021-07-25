@@ -35,10 +35,4 @@ public class Editora {
 	@Column (nullable = false, unique = true)
 	private String nome;
 	
-	private void teste() {
-		Livro.builder().id(1L).isbn("local").nome("Nome").build();
-		Autor.builder().id(1L).idade(123).build();
-		
-		Editora.builder().id(1L).nome("Teste").build();
-	}
 }
