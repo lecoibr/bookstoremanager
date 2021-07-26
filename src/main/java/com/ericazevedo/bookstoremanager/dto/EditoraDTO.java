@@ -26,7 +26,7 @@ public class EditoraDTO {
 	
 	//Trata os dados antes de irem pro banco de dados, para darem um retorno de erro melhor para o usuário.
 	@NotBlank(message = "Nome precisa ser preenchido.")
-	@Size(max = 200, message = "Máximo de 200 caracteres.")
+	@Size(max = 50, message = "Máximo de 50 caracteres.")
 	private String nome;
 	
 }

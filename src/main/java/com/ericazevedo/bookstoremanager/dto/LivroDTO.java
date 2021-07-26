@@ -28,7 +28,7 @@ public class LivroDTO {
 	
 	//Trata os dados antes de irem pro banco de dados, para darem um retorno de erro melhor para o usuário.
 	@NotBlank(message = "Nome precisa ser preenchido.")
-	@Size(max = 200, message = "Máximo de 200 caracteres.")
+	@Size(max = 50, message = "Máximo de 50 caracteres.")
 	private String nome;
 	
 	@NotNull(message = "Páginas não pode ser nulo.")
@@ -42,11 +42,11 @@ public class LivroDTO {
 	private String isbn;
 	
 	@Valid
-	@NotBlank(message = "EditoraDTO precisa ser preenchido.")
+	@NotNull(message = "EditoraDTO precisa ser preenchido.")
 	private EditoraDTO editoraDTO;
 	
 	@Valid
-	@NotBlank(message = "AutorDTO precisa ser preenchido.")
+	@NotNull(message = "AutorDTO precisa ser preenchido.")
 	private AutorDTO autorDTO;
 	
 }

@@ -18,8 +18,8 @@ public class LivroController {
 	private LivroService livroService;
 	
 	/**
-	 * Exemplo do REST passado no Postman (
-	 * 		  LOCAL: http://localhost:8080/api/v1/livros)
+	 * Exemplo do REST passado no Postman:
+	 * 		  LOCAL: http://localhost:8080/api/v1/livros
 	 * 		HEROKU : https://bookstoremanager-udemy-course.herokuapp.com/api/v1/livros
 	 * 
 		{
@@ -27,11 +27,11 @@ public class LivroController {
 		    "paginas": 342,
 		    "capitulos": 43,
 		    "isbn": "ISBN - 123.655.13",
-		    "autor": {
+		    "autorDTO": {
 		        "nome": "Benjamim Branquilin",
 		        "idade": 43
 		    },
-		    "editora" : {
+		    "editoraDTO" : {
 		        "nome" : "Editora Moderna LTDA"
 		    }
 		
