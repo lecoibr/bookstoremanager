@@ -1,13 +1,13 @@
 package com.ericazevedo.bookstoremanager.controller;
 
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+import com.ericazevedo.bookstoremanager.dto.LivroDTO;
 import com.ericazevedo.bookstoremanager.dto.MessageResponseDTO;
-import com.ericazevedo.bookstoremanager.entity.Livro;
 import com.ericazevedo.bookstoremanager.service.LivroService;
 
 @RestController
@@ -18,7 +18,9 @@ public class LivroController {
 	private LivroService livroService;
 	
 	/**
-	 * Exemplo do REST passado no Postman (http://localhost:8080/api/v1/livros)
+	 * Exemplo do REST passado no Postman (
+	 * 		  LOCAL: http://localhost:8080/api/v1/livros)
+	 * 		HEROKU : https://bookstoremanager-udemy-course.herokuapp.com/api/v1/livros
 	 * 
 		{
 		    "nome": "Investigador da Hora",
@@ -37,8 +39,8 @@ public class LivroController {
 	 
 	 */
 	@PostMapping
-	public MessageResponseDTO create(@RequestBody Livro livro) {
-		return livroService.create(livro);
+	public MessageResponseDTO create(@RequestBody @Valid LivroDTO livroDTO) {
+		return livroService.create(livroDTO);
 	}
 
 }
