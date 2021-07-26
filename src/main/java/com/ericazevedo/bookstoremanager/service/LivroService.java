@@ -1,5 +1,7 @@
 package com.ericazevedo.bookstoremanager.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,11 +22,17 @@ public class LivroService {
 	public MessageResponseDTO create(LivroDTO livroDTO) {
 		
 		Livro novoLivro = livroMapper.toModel(livroDTO);
+		
 		Livro livroSalvo = livroRepository.save(novoLivro);
 		
 		return MessageResponseDTO.builder()
 				.mensagem("Livro criado com o ID -> " + livroSalvo.getId())
 				.build();
+	}
+
+	public LivroDTO findById(Long id) {
+		Optional<Livro> livroOptional = livroRepository.findById(id);
+		return livroMapper.toDto(livroOptional.get());
 	}
 
 }

@@ -49,11 +49,11 @@ public class Livro {
 	private String isbn;
 	
 	@ManyToOne (fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "editora_id")
+	@JoinColumn(name = "id_editora")
 	private Editora editora;
 	
 	@ManyToOne (fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "autor_id")
+	@JoinColumn(name = "id_autor")
 	private Autor autor;
 	
 }

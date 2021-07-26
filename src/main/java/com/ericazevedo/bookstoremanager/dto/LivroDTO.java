@@ -43,10 +43,11 @@ public class LivroDTO {
 	
 	@Valid
 	@NotNull(message = "EditoraDTO precisa ser preenchido.")
-	private EditoraDTO editoraDTO;
+	private EditoraDTO editora;
 	
 	@Valid
 	@NotNull(message = "AutorDTO precisa ser preenchido.")
-	private AutorDTO autorDTO;
+	private AutorDTO autor;
+	
 	
 }

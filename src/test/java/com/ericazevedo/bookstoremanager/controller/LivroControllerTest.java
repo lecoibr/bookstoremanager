@@ -50,8 +50,8 @@ public class LivroControllerTest {
 				.nome("Nome do Livro Aqui")
 				.paginas(123)
 				.capitulos(43)
-				.editoraDTO(EditoraDTO.builder().id(1L).nome("Nome Editora Aqui").build())
-				.autorDTO(AutorDTO.builder().id(1L).nome("Jose Nonato").idade(67).build())
+				.editora(EditoraDTO.builder().id(1L).nome("Nome Editora Aqui").build())
+				.autor(AutorDTO.builder().id(1L).nome("Jose Nonato").idade(67).build())
 				.build();
 		
 		MessageResponseDTO mensagemEsperada = MessageResponseDTO.builder()
@@ -76,8 +76,8 @@ public class LivroControllerTest {
 				.nome("Nome do Livro Aqui Aqui Aqui  Aqui  Aqui  Aqui  Aqui") //Nome com mais de 50 caracteres irá gerar erro 400 (Bad Request).
 				.paginas(123)
 				.capitulos(43)
-				.editoraDTO(EditoraDTO.builder().id(1L).nome("Nome Editora Aqui").build())
-				.autorDTO(AutorDTO.builder().id(1L).nome("Jose Nonato").idade(67).build())
+				.editora(EditoraDTO.builder().id(1L).nome("Nome Editora Aqui").build())
+				.autor(AutorDTO.builder().id(1L).nome("Jose Nonato").idade(67).build())
 				.build();
 		
 		mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/livros")

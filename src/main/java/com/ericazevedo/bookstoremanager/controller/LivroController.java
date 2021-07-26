@@ -2,6 +2,8 @@ package com.ericazevedo.bookstoremanager.controller;
 
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,11 +29,11 @@ public class LivroController {
 		    "paginas": 342,
 		    "capitulos": 43,
 		    "isbn": "ISBN - 123.655.13",
-		    "autorDTO": {
+		    "autor": {
 		        "nome": "Benjamim Branquilin",
 		        "idade": 43
 		    },
-		    "editoraDTO" : {
+		    "editora" : {
 		        "nome" : "Editora Moderna LTDA"
 		    }
 		
@@ -41,6 +43,11 @@ public class LivroController {
 	@PostMapping
 	public MessageResponseDTO create(@RequestBody @Valid LivroDTO livroDTO) {
 		return livroService.create(livroDTO);
+	}
+	
+	@GetMapping("/{id}")
+	public LivroDTO findById(@PathVariable Long id) {
+		return livroService.findById(id);
 	}
 
 }
