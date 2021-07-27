@@ -1,13 +1,12 @@
 package com.ericazevedo.bookstoremanager.service;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ericazevedo.bookstoremanager.dto.LivroDTO;
 import com.ericazevedo.bookstoremanager.dto.MessageResponseDTO;
 import com.ericazevedo.bookstoremanager.entity.Livro;
+import com.ericazevedo.bookstoremanager.exception.LivroNaoEncontradorException;
 import com.ericazevedo.bookstoremanager.mapper.LivroMapper;
 import com.ericazevedo.bookstoremanager.repository.LivroRepository;
 
@@ -30,9 +29,9 @@ public class LivroService {
 				.build();
 	}
 
-	public LivroDTO findById(Long id) {
-		Optional<Livro> livroOptional = livroRepository.findById(id);
-		return livroMapper.toDto(livroOptional.get());
+	public LivroDTO findById(Long id) throws LivroNaoEncontradorException {
+		Livro livro = livroRepository.findById(id).orElseThrow(() -> new LivroNaoEncontradorException(id));
+		return livroMapper.toDto(livro);
 	}
 
 }

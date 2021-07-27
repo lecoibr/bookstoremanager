@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.ericazevedo.bookstoremanager.dto.LivroDTO;
 import com.ericazevedo.bookstoremanager.dto.MessageResponseDTO;
+import com.ericazevedo.bookstoremanager.exception.LivroNaoEncontradorException;
 import com.ericazevedo.bookstoremanager.service.LivroService;
 
 @RestController
@@ -46,7 +47,7 @@ public class LivroController {
 	}
 	
 	@GetMapping("/{id}")
-	public LivroDTO findById(@PathVariable Long id) {
+	public LivroDTO findById(@PathVariable Long id) throws LivroNaoEncontradorException {
 		return livroService.findById(id);
 	}
 
